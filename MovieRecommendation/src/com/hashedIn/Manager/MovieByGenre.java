@@ -90,7 +90,7 @@ public class MovieByGenre implements IMovieByGenre
 		}
 		return topMovie;
 	}
-	public void mostWatchedMovie(List<Movie>  movieList)
+	public void highestRatedMovie(List<Movie>  movieList)
 	{
 		Map<Integer, Movie> watchMovie = new HashMap<Integer, Movie>();
 		Integer key1=0;
@@ -130,5 +130,40 @@ public class MovieByGenre implements IMovieByGenre
 		
 	
 	
+	public void mostWatchedMovie(List<Movie> movieList) throws MovieException
+	{
+	
+		Map<Integer, Movie> mostWatchMovie = new HashMap<Integer, Movie>();
+		Integer key1=0;
+		Integer max = Integer.MIN_VALUE;
+	    for(Object key: movieRatingByUser.keySet()) {
+	        Integer tmp = movieRatingByUser.get(key);
+	        if(tmp.compareTo(max) > 0) {
+	            max = tmp;
+	            key1=(Integer) key;
+	        }
+	    }
+
+		// System.out.println("key"+key1+"value"+max);
+	    for(Movie obj:movieList)
+		{
+	    
+			
+			Integer j=obj.getMovieId();
+			//System.out.println((j));
+			if(key1==j)
+			{ 
+				Movie objMovie = new Movie();
+				objMovie=obj;
+				mostWatchMovie.put(key1,objMovie);
+			}
+				
+			}
+	    
+	    System.out.println("*************************************");
+		System.out.println("Most watched Movie");
+	    System.out.println(mostWatchMovie);
+	
+	}
 
 }

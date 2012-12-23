@@ -60,7 +60,7 @@ public class Manager {
 
 	}
 
-	public void ratingParsing() {
+	public void ratingParsing() throws MovieException {
 
 		ParserTwo ps = new ParserTwo();
 		ps.setfilename("/home/avinash/Downloads/ratings.data");
@@ -77,6 +77,7 @@ public class Manager {
 			me.toString();
 		}
 		obj.getTopMovieByGenre(movieList);
+		obj.highestRatedMovie(movieList);
 		obj.mostWatchedMovie(movieList);
 
 	}

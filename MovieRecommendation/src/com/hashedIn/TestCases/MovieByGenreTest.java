@@ -15,7 +15,7 @@ import com.hashedIn.Model.Movie;
 public class MovieByGenreTest {
 
 	@Test
-	public void test() {
+	public void test() throws MovieException {
 		MovieByGenre obj = new MovieByGenre(); 
 		Manager obj1 = new Manager();
 		obj1.movieParsing();
