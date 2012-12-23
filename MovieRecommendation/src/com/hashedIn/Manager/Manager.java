@@ -35,14 +35,12 @@ public class Manager {
 		ps.setfilename("/home/avinash/Downloads/movie.data");
 		ps.parseFile();
 		List<String> listMovie = ps.getList();
-		// System.out.println(listMovie);
 		movieList = new ArrayList<Movie>();
 
 		for (int i = 0; i < listMovie.size() - 1; i++) {
 			Movie objMovie = new Movie();
 			objMovie.setMovieId(Integer.parseInt(listMovie.get(i++)));
 			objMovie.setMovieTitle(listMovie.get(i++));
-			// System.out.println(objMovie.getMovieTitle());
 			objMovie.setReleaseDate(listMovie.get(i++));
 			objMovie.setVideoReleaseDate(listMovie.get(i++));
 			objMovie.setImdbUrl(listMovie.get(i++));
@@ -66,7 +64,6 @@ public class Manager {
 		ps.setfilename("/home/avinash/Downloads/ratings.data");
 		ps.parseFile();
 		ratingList = ps.getList();
-		// System.out.println(ratingList.toString());
 		movieParsing();
 		MovieByGenre obj = new MovieByGenre();
 		try
@@ -86,6 +83,5 @@ public class Manager {
 		ps.setfilename("/home/avinash/Downloads/user.data");
 		ps.parseFile();
 		List<String> userList = ps.getList();
-		// System.out.println(userList.toString());
 	}
 }

@@ -15,3 +15,4 @@ public interface IMovieByGenre
 	public Map<Integer, Movie> getTopMovieByGenre(List<Movie>  movieList);
 
 }
+

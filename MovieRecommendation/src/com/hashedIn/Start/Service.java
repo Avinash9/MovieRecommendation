@@ -10,8 +10,8 @@ public class Service {
 	public static void main(String[] args) 
 	{
 		Manager m=new Manager();
-	//	m.movieParsing();
-	//	m.userParsing();
+		m.movieParsing();
+		m.userParsing();
 		m.ratingParsing();
 	}
 
