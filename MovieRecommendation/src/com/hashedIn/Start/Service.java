@@ -1,6 +1,6 @@
 package com.hashedIn.Start;
 
-import com.hashedIn.Service.Manager;
+import com.hashedIn.Manager.Manager;
 
 public class Service {
 
@@ -10,9 +10,9 @@ public class Service {
 	public static void main(String[] args) 
 	{
 		Manager m=new Manager();
-		//m.movieParsing();
-		m.userParsing();
-		//m.ratingParsing();
+	//	m.movieParsing();
+	//	m.userParsing();
+		m.ratingParsing();
 	}
 
 }
