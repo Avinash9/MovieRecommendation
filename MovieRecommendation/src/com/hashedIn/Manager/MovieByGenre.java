@@ -7,7 +7,7 @@ import java.util.Map;
 import com.hashedIn.Exceptions.MovieException;
 import com.hashedIn.Model.Movie;
 
-public class MovieByGenre
+public class MovieByGenre implements IMovieByGenre
 {
 	private Map<Integer, Integer> movieRatingMap ;  
 	private Map<Integer, Integer> movieRatingByUser = null;
