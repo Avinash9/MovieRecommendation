@@ -53,7 +53,9 @@ public class Manager {
 			}
 
 			objMovie.setGenre(genre);
+			//System.out.println(genre);
 			movieList.add(objMovie);
+			//System.out.println(movieList);
 		}
 
 	}
@@ -75,6 +77,7 @@ public class Manager {
 			me.toString();
 		}
 		obj.getTopMovieByGenre(movieList);
+		obj.mostWatchedMovie(movieList);
 
 	}
 

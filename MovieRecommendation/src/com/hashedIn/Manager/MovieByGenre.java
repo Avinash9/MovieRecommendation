@@ -1,8 +1,17 @@
 package com.hashedIn.Manager;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import com.hashedIn.Exceptions.MovieException;
 import com.hashedIn.Model.Movie;
@@ -16,7 +25,6 @@ public class MovieByGenre implements IMovieByGenre
 	{
 		movieRatingMap = new HashMap<Integer, Integer>();
 		movieRatingByUser = new HashMap<Integer, Integer>();
-		System.out.println(ratingList.size());
 		
 		try
 		{
@@ -38,6 +46,7 @@ public class MovieByGenre implements IMovieByGenre
 				}
 				
 			}
+			//System.out.println(movieRatingMap);
 		}
 		catch(Exception e)
 		{
@@ -72,7 +81,8 @@ public class MovieByGenre implements IMovieByGenre
 				
 				
 			}
-			
+			System.out.println("*************************************");
+			System.out.println("Movie By Genre");
 			System.out.println("Genre: "+i+" Avg. Rating: "+maxRating+" Movie Detail: "+objMovie.toString());
 			maxRating=-99999.00;
 			objMovie=new Movie();
@@ -80,6 +90,45 @@ public class MovieByGenre implements IMovieByGenre
 		}
 		return topMovie;
 	}
+	public void mostWatchedMovie(List<Movie>  movieList)
+	{
+		Map<Integer, Movie> watchMovie = new HashMap<Integer, Movie>();
+		Integer key1=0;
+		Integer max = Integer.MIN_VALUE;
+	    for(Object key: movieRatingMap.keySet()) {
+	        Integer tmp = movieRatingMap.get(key);
+	        if(tmp.compareTo(max) > 0) {
+	            max = tmp;
+	            key1=(Integer) key;
+	        }
+	    }
+
+	   // System.out.println("key"+key1+"value"+max);
+	    for(Movie obj:movieList)
+		{
+	    
+			
+			Integer j=obj.getMovieId();
+			//System.out.println((j));
+			if(key1==j)
+			{ 
+				Movie objMovie = new Movie();
+				objMovie=obj;
+				watchMovie.put(key1,objMovie);
+			}
+				
+			}
+	    
+	    System.out.println("*************************************");
+		System.out.println("Highest Rated Movie");
+	    System.out.println(watchMovie);
+	
+	
+		
+		
+    }
+		
+	
 	
 
 }
