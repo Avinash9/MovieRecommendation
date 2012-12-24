@@ -9,6 +9,12 @@ import com.hashedIn.Exceptions.MovieException;
 import com.hashedIn.Model.Movie;
 import com.hashedIn.Parser.*;
 
+/**
+ * 
+ * @author avinash
+ * Manager class is a class between parse and other classes.
+ *
+ */
 public class Manager {
 
 	private List<Movie> movieList = null;
@@ -29,6 +35,9 @@ public class Manager {
 	public void setRatingList(List<String> ratingList) {
 		this.ratingList = ratingList;
 	}
+	/**
+	 * movieParsing mthod will parse the data from movie.data
+	 */
 
 	public void movieParsing() {
 		ParserOne ps = new ParserOne();
@@ -59,6 +68,10 @@ public class Manager {
 		}
 
 	}
+	
+	/**
+	 *ratingparser mthod will parse the data fromratings.data
+	 */
 
 	public void ratingParsing() throws MovieException {
 
@@ -81,6 +94,9 @@ public class Manager {
 		obj.mostWatchedMovie(movieList);
 
 	}
+	/**
+	 * userparsing mthod will parse the data from user.data
+	 */
 
 	public void userParsing() {
 		ParserOne ps = new ParserOne();

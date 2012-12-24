@@ -10,7 +10,7 @@ public class ParserOne {
 	/**
 	 * 1.get the file 2.parse the movie file 3. get the movieid,moviename,genre
 	 * 4.store into a object.
-	 * 
+	 * This parser will remove the | grom file and stored into a list
 	 */
 
 	private String filename;

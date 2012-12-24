@@ -20,7 +20,9 @@ public class MovieByGenre implements IMovieByGenre
 {
 	private Map<Integer, Integer> movieRatingMap ;  
 	private Map<Integer, Integer> movieRatingByUser = null;
-	
+	/**
+	 *byGenre method will calculate the method according to byGenre
+	 */
 	public void byGenre(List<String> ratingList) throws MovieException
 	{
 		movieRatingMap = new HashMap<Integer, Integer>();
@@ -55,6 +57,9 @@ public class MovieByGenre implements IMovieByGenre
 		
 	}
 	
+	/**
+	 * getTopMovieByGenre will get the top movie accoding to the genre
+	 */
 	public Map<Integer, Movie> getTopMovieByGenre(List<Movie>  movieList)
 	{
 		double maxRating = -99999.000;

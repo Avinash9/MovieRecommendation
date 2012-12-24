@@ -11,7 +11,7 @@ public class ParserTwo
 	/**
 	 * 1.get the file 2.parse the movie file 3. get the movieid,moviename,genre
 	 * 4.store into a object.
-	 * 
+	 * This parser will parse accoding to spaces.
 	 */
 
 	private List<String> list=null;
