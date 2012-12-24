@@ -15,7 +15,18 @@ import java.util.TreeMap;
 
 import com.hashedIn.Exceptions.MovieException;
 import com.hashedIn.Model.Movie;
+import com.hashedIn.Model.Ratings;
 
+/**
+ * 
+ * @author avinash
+ *Class MovieByGenre is calculating movie on differnt parameters.
+ *having methods
+ *byGenre(List<String> ratingList)
+ *getTopMovieByGenre(List<Movie>  movieList)
+ *highestRatedMovie(List<Movie>  movieList)
+ * mostActiveUser(List<String> ratingList)
+ */
 public class MovieByGenre implements IMovieByGenre
 {
 	private Map<Integer, Integer> movieRatingMap ;  
@@ -48,7 +59,7 @@ public class MovieByGenre implements IMovieByGenre
 				}
 				
 			}
-			//System.out.println(movieRatingMap);
+			
 		}
 		catch(Exception e)
 		{
@@ -95,6 +106,11 @@ public class MovieByGenre implements IMovieByGenre
 		}
 		return topMovie;
 	}
+	/**
+	 * 
+	 * @param movieList
+	 * highestRatedMovie method finding the movie getting highest rating
+	 */
 	public void highestRatedMovie(List<Movie>  movieList)
 	{
 		Map<Integer, Movie> watchMovie = new HashMap<Integer, Movie>();
@@ -108,7 +124,7 @@ public class MovieByGenre implements IMovieByGenre
 	        }
 	    }
 
-	   // System.out.println("key"+key1+"value"+max);
+	  
 	    for(Movie obj:movieList)
 		{
 	    
@@ -133,7 +149,12 @@ public class MovieByGenre implements IMovieByGenre
 		
     }
 		
-	
+	/**
+	 * 
+	 * @param movieList
+	 * @throws MovieException
+	 * mostWatchMovie method is finding the movie from Rating.data amd movie.data the movie which is most watched
+	 */
 	
 	public void mostWatchedMovie(List<Movie> movieList) throws MovieException
 	{
@@ -149,13 +170,13 @@ public class MovieByGenre implements IMovieByGenre
 	        }
 	    }
 
-		// System.out.println("key"+key1+"value"+max);
+		
 	    for(Movie obj:movieList)
 		{
 	    
 			
 			Integer j=obj.getMovieId();
-			//System.out.println((j));
+			
 			if(key1==j)
 			{ 
 				Movie objMovie = new Movie();
@@ -170,5 +191,51 @@ public class MovieByGenre implements IMovieByGenre
 	    System.out.println(mostWatchMovie);
 	
 	}
+	/**
+	 * 
+	 * @param ratingList
+	 * @throws MovieException
+	 * mostActiveUser method is calculating the userid, the most active user
+	 */
+	public void mostActiveUser(List<String> ratingList) throws MovieException
+	{
+		Map<Integer, Integer> activeUser = new HashMap<Integer,Integer>();
+		try
+		{
+			for(int i=0;i<ratingList.size()-1;i+=4)
+			{
+				int key=Integer.parseInt(ratingList.get(i));
+				if(activeUser.containsKey(key))
+				{
+					Integer b = activeUser.get(key);
+					activeUser.put(key, ++b);
+				}
+				else
+				{
+				
+					activeUser.put(key,1);	
+				}
+				
+			}
+			
+		}
+		catch(Exception e)
+		{
+			throw new MovieException("Problem Encounter During Genre Processing");
+		}
+		Integer key1=0;
+		Integer max = Integer.MIN_VALUE;
+	    for(Object key: activeUser.keySet()) {
+	        Integer tmp = activeUser.get(key);
+	        if(tmp.compareTo(max) > 0) {
+	            max = tmp;
+	            key1=(Integer) key;
+	        }
+	    }
+		System.out.println("+++++++++++++++++++++++++++++++++++++==");
+		System.out.println("User Id "+key1+" is most active user");
+		
+	}
+	
 
 }

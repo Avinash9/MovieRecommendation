@@ -20,6 +20,7 @@ public class Service {
 		m.movieParsing();
 		m.userParsing();
 		m.ratingParsing();
+		
 	}
 
 }

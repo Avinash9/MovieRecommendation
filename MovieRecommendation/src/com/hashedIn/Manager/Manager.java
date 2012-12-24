@@ -7,13 +7,17 @@ import java.util.Map;
 
 import com.hashedIn.Exceptions.MovieException;
 import com.hashedIn.Model.Movie;
+import com.hashedIn.Model.User;
 import com.hashedIn.Parser.*;
 
 /**
  * 
  * @author avinash
  * Manager class is a class between parse and other classes.
- *
+ *having methods
+ *public void movieParsing()
+ *public void ratingParsing()
+ *public void userParsing()
  */
 public class Manager {
 
@@ -41,7 +45,7 @@ public class Manager {
 
 	public void movieParsing() {
 		ParserOne ps = new ParserOne();
-		ps.setfilename("/home/avinash/Downloads/movie.data");
+		ps.setfilename("movie.data");
 		ps.parseFile();
 		List<String> listMovie = ps.getList();
 		movieList = new ArrayList<Movie>();
@@ -76,7 +80,7 @@ public class Manager {
 	public void ratingParsing() throws MovieException {
 
 		ParserTwo ps = new ParserTwo();
-		ps.setfilename("/home/avinash/Downloads/ratings.data");
+		ps.setfilename("ratings.data");
 		ps.parseFile();
 		ratingList = ps.getList();
 		movieParsing();
@@ -92,7 +96,7 @@ public class Manager {
 		obj.getTopMovieByGenre(movieList);
 		obj.highestRatedMovie(movieList);
 		obj.mostWatchedMovie(movieList);
-
+		obj.mostActiveUser(ratingList);
 	}
 	/**
 	 * userparsing mthod will parse the data from user.data
@@ -100,8 +104,10 @@ public class Manager {
 
 	public void userParsing() {
 		ParserOne ps = new ParserOne();
-		ps.setfilename("/home/avinash/Downloads/user.data");
+		ps.setfilename("user.data");
 		ps.parseFile();
 		List<String> userList = ps.getList();
+		
+		
 	}
 }
